@@ -14,6 +14,7 @@ namespace OctoContacts
         {
             // TODO temporarily redirected to MessageHistoryForm
             new MessageHistoryForm().ShowDialog();
+            new SendMessageForm().ShowDialog();
         }
     }
 }
