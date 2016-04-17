@@ -28,10 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
-            "ykhtdyk",
-            "ghykmg",
-            "yuhkftuklfdtulk"}, -1);
             this.listView = new System.Windows.Forms.ListView();
             this.toHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.messageHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -49,8 +45,6 @@
             this.messageHeader});
             this.listView.FullRowSelect = true;
             this.listView.GridLines = true;
-            this.listView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
             this.listView.Location = new System.Drawing.Point(12, 12);
             this.listView.Name = "listView";
             this.listView.Size = new System.Drawing.Size(750, 409);
@@ -61,17 +55,17 @@
             // toHeader
             // 
             this.toHeader.Text = "To";
-            this.toHeader.Width = 100;
+            this.toHeader.Width = 120;
             // 
             // messageHeader
             // 
             this.messageHeader.Text = "Message";
-            this.messageHeader.Width = 541;
+            this.messageHeader.Width = 470;
             // 
             // dateHeader
             // 
             this.dateHeader.Text = "Date";
-            this.dateHeader.Width = 79;
+            this.dateHeader.Width = 130;
             // 
             // MessageHistoryForm
             // 
