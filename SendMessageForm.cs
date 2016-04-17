@@ -8,14 +8,18 @@ namespace OctoContacts
 {
     public partial class SendMessageForm : Form
     {
-        public SendMessageForm()
+        private Contact contact;
+
+        public SendMessageForm(Contact contact)
         {
             InitializeComponent();
+
+            this.contact = contact;
         }
 
         private void SendMessageForm_Load(object sender, EventArgs e)
         {
-            // TODO load contact
+            contactTextBox.Text = contact.Name + " (" + contact.Number + ")";
         }
 
         private void messageTextBox_TextChanged(object sender, EventArgs e)
@@ -32,7 +36,7 @@ namespace OctoContacts
             {
                 using (var wc = new WebClient())
                 {
-                    //await wc.DownloadStringTaskAsync("https://rest.nexmo.com/sms/json?api_key=685ca000&api_secret=7f2833736631bfda&to=40748635048&from=OctoContacts&text=" + Uri.EscapeDataString(messageTextBox.Text));
+                    await wc.DownloadStringTaskAsync("https://rest.nexmo.com/sms/json?api_key=685ca000&api_secret=7f2833736631bfda&from=OctoContacts&to=" + Uri.EscapeDataString(contact.Number) + "&text=" + Uri.EscapeDataString(messageTextBox.Text));
                 }
             }
             catch (Exception)
@@ -47,7 +51,7 @@ namespace OctoContacts
             {
                 using (var odb = OdbFactory.Open("octo.db"))
                 {
-                    odb.Store(new Message(DateTime.Now, "Zsolt Kovacs", messageTextBox.Text));
+                    odb.Store(new Message(DateTime.Now, contact.Name, messageTextBox.Text));
                 }
             }
             catch (Exception)

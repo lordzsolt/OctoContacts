@@ -12,9 +12,9 @@ namespace OctoContacts
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // TODO temporarily redirected to MessageHistoryForm
+            // TODO temporary flow of the app
+            new SendMessageForm(new Contact("Zsolt Kovács", "40748635048")).ShowDialog();
             new MessageHistoryForm().ShowDialog();
-            new SendMessageForm().ShowDialog();
         }
     }
 }
