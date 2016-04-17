@@ -12,8 +12,8 @@ namespace OctoContacts
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // TODO temporarily redirected to SendMessageForm
-            new SendMessageForm().ShowDialog();
+            // TODO temporarily redirected to MessageHistoryForm
+            new MessageHistoryForm().ShowDialog();
         }
     }
 }
