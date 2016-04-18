@@ -2,6 +2,8 @@
 using System.Linq;
 using System.Windows.Forms;
 
+using CryptSharp;
+
 using NDatabase;
 
 namespace OctoContacts.DataObjects
@@ -26,7 +28,7 @@ namespace OctoContacts.DataObjects
                 {
                     var user = odb.AsQueryable<User>().FirstOrDefault(u => u.Username == username);
                     
-                    if (user != null && user.Password == password)
+                    if (user != null && Crypter.CheckPassword(password, user.Password))
                     {
                         return user;
                     }
@@ -42,7 +44,7 @@ namespace OctoContacts.DataObjects
             return null;
         }
 
-        public static void register(string username, string password)
+        public static bool Register(string username, string password)
         {
             try
             {
@@ -53,19 +55,21 @@ namespace OctoContacts.DataObjects
                     if (user != null)
                     {
                         MessageBox.Show("Username already in use.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
+                        return false;
                     }
 
+                    user = new User(username, Crypter.Blowfish.Crypt(password));
+                    odb.Store(user);
 
+                    return true;
                 }
 
             }
             catch (Exception)
             {
                 MessageBox.Show("Failed to open database.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
-
-            return null;
         }
     }
 }

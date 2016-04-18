@@ -38,7 +38,7 @@ namespace OctoContacts
         {
             var username = this.usernameTextBox.Text;
             var password = this.passwordTextBox.Text;
-            var user = User.login(username, password);
+            var user = User.Login(username, password);
             if (user != null && this.saveUsernameCheckbox.Checked)
             {
                 Configuration config =
