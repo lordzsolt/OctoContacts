@@ -38,7 +38,7 @@
             // 
             // loginButton
             // 
-            this.loginButton.Location = new System.Drawing.Point(100, 226);
+            this.loginButton.Location = new System.Drawing.Point(107, 96);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(75, 23);
             this.loginButton.TabIndex = 0;
@@ -49,7 +49,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 76);
+            this.label1.Location = new System.Drawing.Point(16, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 1;
@@ -58,7 +58,7 @@
             // passwordLabel
             // 
             this.passwordLabel.AutoSize = true;
-            this.passwordLabel.Location = new System.Drawing.Point(15, 125);
+            this.passwordLabel.Location = new System.Drawing.Point(16, 41);
             this.passwordLabel.Name = "passwordLabel";
             this.passwordLabel.Size = new System.Drawing.Size(56, 13);
             this.passwordLabel.TabIndex = 2;
@@ -66,22 +66,23 @@
             // 
             // usernameTextBox
             // 
-            this.usernameTextBox.Location = new System.Drawing.Point(77, 73);
+            this.usernameTextBox.Location = new System.Drawing.Point(78, 12);
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(194, 20);
             this.usernameTextBox.TabIndex = 3;
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Location = new System.Drawing.Point(77, 122);
+            this.passwordTextBox.Location = new System.Drawing.Point(78, 38);
             this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.Size = new System.Drawing.Size(194, 20);
             this.passwordTextBox.TabIndex = 4;
             // 
             // saveUsernameCheckbox
             // 
             this.saveUsernameCheckbox.AutoSize = true;
-            this.saveUsernameCheckbox.Location = new System.Drawing.Point(194, 99);
+            this.saveUsernameCheckbox.Location = new System.Drawing.Point(195, 64);
             this.saveUsernameCheckbox.Name = "saveUsernameCheckbox";
             this.saveUsernameCheckbox.Size = new System.Drawing.Size(77, 17);
             this.saveUsernameCheckbox.TabIndex = 5;
@@ -92,15 +93,19 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(284, 134);
             this.Controls.Add(this.saveUsernameCheckbox);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.usernameTextBox);
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.loginButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "LoginForm";
-            this.Text = "LoginForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Login";
             this.Load += new System.EventHandler(this.LoginForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
