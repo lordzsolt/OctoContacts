@@ -18,7 +18,7 @@ namespace OctoContacts.DataObjects
             Password = password;
         }
 
-        public static User login(string username, string password)
+        public static User Login(string username, string password)
         {
             try
             {
