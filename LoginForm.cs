@@ -8,7 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 using NDatabase;
+
 using OctoContacts.DataObjects;
 
 namespace OctoContacts
@@ -16,6 +18,7 @@ namespace OctoContacts
     public partial class LoginForm : Form
     {
         private const string kConfigurationKeyUsername = "username";
+
         public LoginForm()
         {
             InitializeComponent();
