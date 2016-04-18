@@ -41,5 +41,31 @@ namespace OctoContacts.DataObjects
 
             return null;
         }
+
+        public static void register(string username, string password)
+        {
+            try
+            {
+                using (var odb = OdbFactory.Open("octo.db"))
+                {
+                    var user = odb.AsQueryable<User>().FirstOrDefault(u => u.Username == username);
+
+                    if (user != null)
+                    {
+                        MessageBox.Show("Username already in use.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+
+                }
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Failed to open database.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return null;
+        }
     }
 }
