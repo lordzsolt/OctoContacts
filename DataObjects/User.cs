@@ -13,11 +13,31 @@ namespace OctoContacts.DataObjects
     {
         public string Username { get; set; }
         public string Password { get; set; }
-
-        public User(string username, string password)
+        public string SecurityQuestion { get; set; }
+        public string SecurityAnswer { get; set; }
+        public User(string username, string password, string securityQ, string securityA)
         {
             Username = username;
             Password = password;
+            SecurityQuestion = securityQ;
+            SecurityAnswer = securityA;
+        }
+
+        public static bool UsernameExists(string username)
+        {
+            try
+            {
+                using (var odb = OdbFactory.Open("octo.db"))
+                {
+                    var user = odb.AsQueryable<User>().FirstOrDefault(u => u.Username == username);
+                    return user != null;
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Failed to open database.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return false;
         }
 
         public static User Login(string username, string password)
@@ -44,31 +64,19 @@ namespace OctoContacts.DataObjects
             return null;
         }
 
-        public static bool Register(string username, string password)
+        public void Save()
         {
             try
             {
                 using (var odb = OdbFactory.Open("octo.db"))
                 {
-                    var user = odb.AsQueryable<User>().FirstOrDefault(u => u.Username == username);
-
-                    if (user != null)
-                    {
-                        MessageBox.Show("Username already in use.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return false;
-                    }
-
-                    user = new User(username, Crypter.Blowfish.Crypt(password));
-                    odb.Store(user);
-
-                    return true;
+                    odb.Store(this);
                 }
 
             }
             catch (Exception)
             {
                 MessageBox.Show("Failed to open database.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
             }
         }
     }

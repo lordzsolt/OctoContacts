@@ -34,6 +34,8 @@
             this.usernameTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.saveUsernameCheckbox = new System.Windows.Forms.CheckBox();
+            this.registerLinkLabel = new System.Windows.Forms.LinkLabel();
+            this.forgotLinkLabel = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // loginButton
@@ -89,11 +91,34 @@
             this.saveUsernameCheckbox.Text = "Remember";
             this.saveUsernameCheckbox.UseVisualStyleBackColor = true;
             // 
+            // registerLinkLabel
+            // 
+            this.registerLinkLabel.AutoSize = true;
+            this.registerLinkLabel.Location = new System.Drawing.Point(16, 101);
+            this.registerLinkLabel.Name = "registerLinkLabel";
+            this.registerLinkLabel.Size = new System.Drawing.Size(46, 13);
+            this.registerLinkLabel.TabIndex = 6;
+            this.registerLinkLabel.TabStop = true;
+            this.registerLinkLabel.Text = "Register";
+            this.registerLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.registerLinkLabel_LinkClicked);
+            // 
+            // forgotLinkLabel
+            // 
+            this.forgotLinkLabel.AutoSize = true;
+            this.forgotLinkLabel.Location = new System.Drawing.Point(229, 101);
+            this.forgotLinkLabel.Name = "forgotLinkLabel";
+            this.forgotLinkLabel.Size = new System.Drawing.Size(43, 13);
+            this.forgotLinkLabel.TabIndex = 7;
+            this.forgotLinkLabel.TabStop = true;
+            this.forgotLinkLabel.Text = "Forgot?";
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 134);
+            this.ClientSize = new System.Drawing.Size(284, 135);
+            this.Controls.Add(this.forgotLinkLabel);
+            this.Controls.Add(this.registerLinkLabel);
             this.Controls.Add(this.saveUsernameCheckbox);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.usernameTextBox);
@@ -120,5 +145,7 @@
         private System.Windows.Forms.TextBox usernameTextBox;
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.CheckBox saveUsernameCheckbox;
+        private System.Windows.Forms.LinkLabel registerLinkLabel;
+        private System.Windows.Forms.LinkLabel forgotLinkLabel;
     }
 }

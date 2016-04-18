@@ -17,7 +17,7 @@ namespace OctoContacts
 {
     public partial class LoginForm : Form
     {
-        private const string kConfigurationKeyUsername = "username";
+        private const string KConfigurationKeyUsername = "username";
 
         public LoginForm()
         {
@@ -28,9 +28,9 @@ namespace OctoContacts
         {
             Configuration config =
                 ConfigurationManager.OpenExeConfiguration(System.Windows.Forms.Application.ExecutablePath);
-            if (config.AppSettings.Settings[kConfigurationKeyUsername] != null)
+            if (config.AppSettings.Settings[KConfigurationKeyUsername] != null)
             {
-                this.usernameTextBox.Text = config.AppSettings.Settings[kConfigurationKeyUsername].Value;
+                this.usernameTextBox.Text = config.AppSettings.Settings[KConfigurationKeyUsername].Value;
             }
         }
 
@@ -43,8 +43,13 @@ namespace OctoContacts
             {
                 Configuration config =
                     ConfigurationManager.OpenExeConfiguration(System.Windows.Forms.Application.ExecutablePath);
-                config.AppSettings.Settings[kConfigurationKeyUsername].Value = username;
+                config.AppSettings.Settings[KConfigurationKeyUsername].Value = username;
             }
+        }
+
+        private void registerLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            new RegisterForm().Show();
         }
     }
 }
