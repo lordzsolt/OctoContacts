@@ -19,6 +19,4 @@ namespace OctoContacts
             Application.Run(new Form1());
         }
     }
-    
-    //FUCK
 }
