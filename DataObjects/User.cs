@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
 using CryptSharp;
@@ -25,19 +26,24 @@ namespace OctoContacts.DataObjects
 
         public static bool UsernameExists(string username)
         {
+            return UserWithUsername(username) != null;
+        }
+
+        public static User UserWithUsername(string username)
+        {
             try
             {
                 using (var odb = OdbFactory.Open("octo.db"))
                 {
                     var user = odb.AsQueryable<User>().FirstOrDefault(u => u.Username == username);
-                    return user != null;
+                    return user;
                 }
             }
             catch (Exception)
             {
                 MessageBox.Show("Failed to open database.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            return false;
+            return null;
         }
 
         public static User Login(string username, string password)
@@ -79,5 +85,6 @@ namespace OctoContacts.DataObjects
                 MessageBox.Show("Failed to open database.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
     }
 }

@@ -111,6 +111,7 @@
             this.forgotLinkLabel.TabIndex = 7;
             this.forgotLinkLabel.TabStop = true;
             this.forgotLinkLabel.Text = "Forgot?";
+            this.forgotLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.forgotLinkLabel_LinkClicked);
             // 
             // LoginForm
             // 

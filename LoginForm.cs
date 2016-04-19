@@ -51,5 +51,10 @@ namespace OctoContacts
         {
             new RegisterForm().Show();
         }
+
+        private void forgotLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            new UsernameForm().Show();
+        }
     }
 }
