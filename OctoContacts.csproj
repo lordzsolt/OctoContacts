@@ -58,6 +58,9 @@
     <Compile Include="DataObjects\Contact.cs" />
     <Compile Include="DataObjects\Message.cs" />
     <Compile Include="DataObjects\User.cs" />
+    <Compile Include="NewPasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SecurityQuestionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,9 +119,6 @@
     </Compile>
     <EmbeddedResource Include="RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SecurityQuestionForm.resx">
-      <DependentUpon>SecurityQuestionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SendMessageForm.resx">
       <DependentUpon>SendMessageForm.cs</DependentUpon>

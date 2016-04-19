@@ -96,6 +96,7 @@ namespace OctoContacts
                 return;
             }
 
+            new NewPasswordForm(user).Show();
             Close();
         }
     }
