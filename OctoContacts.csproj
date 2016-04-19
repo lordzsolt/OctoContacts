@@ -117,6 +117,9 @@
     <EmbeddedResource Include="RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SecurityQuestionForm.resx">
+      <DependentUpon>SecurityQuestionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SendMessageForm.resx">
       <DependentUpon>SendMessageForm.cs</DependentUpon>
     </EmbeddedResource>
