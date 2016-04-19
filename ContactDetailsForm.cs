@@ -8,15 +8,30 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using NDatabase;
+
 namespace OctoContacts
 {
     public partial class ContactDetailsForm : Form
     {
         private Contact contact;
-        public ContactDetailsForm(Contact contact)
+        public ContactDetailsForm(string contactName)
         {
             InitializeComponent();
-            this.contact = contact;
+            try
+            {
+                using (var odb = OdbFactory.Open("octo.db"))
+                {
+                    contact = (from cont in odb.AsQueryable<Contact>()
+                               where cont.Name.Equals(contactName)
+                               select cont).First();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Failed to open database.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
         }
 
         private void ContactDetailsForm_Load(object sender, EventArgs e)
@@ -25,13 +40,7 @@ namespace OctoContacts
             labelShowedContactNumber.Text = contact.Number;
         }
 
-        private void buttonEditContact_Click(object sender, EventArgs e)
-        {
-            new EditContactForm(contact).ShowDialog();
-            this.Close();
-        }
-
-        private void buttonContactCancel_Click(object sender, EventArgs e)
+        private void buttonContactOK_Click(object sender, EventArgs e)
         {
             this.Close();
         }

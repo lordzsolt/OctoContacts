@@ -15,10 +15,28 @@ namespace OctoContacts
     public partial class EditContactForm : Form
     {
         private Contact contact;
-        public EditContactForm(Contact contact)
+        ContactListForm parent;
+        public EditContactForm(ContactListForm parent, string contactName)
         {
             InitializeComponent();
-            this.contact = contact;
+
+            try
+            {
+                using (var odb = OdbFactory.Open("octo.db"))
+                {
+                    contact = (from cont in odb.AsQueryable<Contact>()
+                                      where cont.Name.Equals(contactName)
+                                      select cont).First();
+                    odb.Delete(contact);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Failed to open database.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            this.parent = parent;
         }
 
         private void EditContactForm_Load(object sender, EventArgs e)
@@ -29,30 +47,43 @@ namespace OctoContacts
 
         private void buttonContactSave_Click(object sender, EventArgs e)
         {
+            StoreInDatabase(true);
+        }
+
+        private void buttonContactCancel_Click(object sender, EventArgs e)
+        {
+            StoreInDatabase(false);
+        }
+
+        private void StoreInDatabase(bool isSave)
+        {
             try
             {
                 using (var odb = OdbFactory.Open("octo.db"))
                 {
-                    Contact fromDB = (from cont in odb.AsQueryable<Contact>()
-                                     where cont.Name.Equals(contact.Name) && cont.Number.Equals(contact.Number)
-                                     select cont).First();
-
-                    fromDB.Name = textBoxContactName.Text;
-                    fromDB.Number = textBoxContactNumber.Text;
-
-                    odb.Store(fromDB);
+                    if (isSave)
+                    {
+                        contact.Name = textBoxContactName.Text;
+                        contact.Number = textBoxContactNumber.Text;
+                        var nothing = (from cont in odb.AsQueryable<Contact>()
+                                       where cont.Name.Equals(this.textBoxContactName.Text) ||
+                                        cont.Name.Equals(this.textBoxContactNumber.Text)
+                                       select cont).ToList();
+                        if (nothing.Count > 0)
+                        {
+                            MessageBox.Show("This contact already exists in the database.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+                    odb.Store(contact);
                 }
             }
             catch (Exception)
             {
                 MessageBox.Show("Failed to open database.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            MessageBox.Show("Contact updated successfully!", "Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.Close();
-        }
-
-        private void buttonContactCancel_Click(object sender, EventArgs e)
-        {
+            this.parent.Refresh();
             this.Close();
         }
     }

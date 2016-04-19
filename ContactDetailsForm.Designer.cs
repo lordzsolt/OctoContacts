@@ -28,33 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonContactCancel = new System.Windows.Forms.Button();
-            this.buttonEditContact = new System.Windows.Forms.Button();
+            this.buttonContactOK = new System.Windows.Forms.Button();
             this.labelContactNumber = new System.Windows.Forms.Label();
             this.labelContactName = new System.Windows.Forms.Label();
             this.labelShowedContactName = new System.Windows.Forms.Label();
             this.labelShowedContactNumber = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // buttonContactCancel
+            // buttonContactOK
             // 
-            this.buttonContactCancel.Location = new System.Drawing.Point(197, 211);
-            this.buttonContactCancel.Name = "buttonContactCancel";
-            this.buttonContactCancel.Size = new System.Drawing.Size(75, 23);
-            this.buttonContactCancel.TabIndex = 14;
-            this.buttonContactCancel.Text = "Cancel";
-            this.buttonContactCancel.UseVisualStyleBackColor = true;
-            this.buttonContactCancel.Click += new System.EventHandler(this.buttonContactCancel_Click);
-            // 
-            // buttonEditContact
-            // 
-            this.buttonEditContact.Location = new System.Drawing.Point(12, 211);
-            this.buttonEditContact.Name = "buttonEditContact";
-            this.buttonEditContact.Size = new System.Drawing.Size(75, 23);
-            this.buttonEditContact.TabIndex = 1;
-            this.buttonEditContact.Text = "Edit Contact";
-            this.buttonEditContact.UseVisualStyleBackColor = true;
-            this.buttonEditContact.Click += new System.EventHandler(this.buttonEditContact_Click);
+            this.buttonContactOK.Location = new System.Drawing.Point(98, 226);
+            this.buttonContactOK.Name = "buttonContactOK";
+            this.buttonContactOK.Size = new System.Drawing.Size(75, 23);
+            this.buttonContactOK.TabIndex = 14;
+            this.buttonContactOK.Text = "OK";
+            this.buttonContactOK.UseVisualStyleBackColor = true;
+            this.buttonContactOK.Click += new System.EventHandler(this.buttonContactOK_Click);
             // 
             // labelContactNumber
             // 
@@ -95,8 +84,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Controls.Add(this.buttonContactCancel);
-            this.Controls.Add(this.buttonEditContact);
+            this.Controls.Add(this.buttonContactOK);
             this.Controls.Add(this.labelShowedContactNumber);
             this.Controls.Add(this.labelContactNumber);
             this.Controls.Add(this.labelShowedContactName);
@@ -111,8 +99,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button buttonContactCancel;
-        private System.Windows.Forms.Button buttonEditContact;
+        private System.Windows.Forms.Button buttonContactOK;
         private System.Windows.Forms.Label labelContactNumber;
         private System.Windows.Forms.Label labelContactName;
         private System.Windows.Forms.Label labelShowedContactName;

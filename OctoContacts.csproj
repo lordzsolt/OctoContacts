@@ -127,6 +127,9 @@
     <EmbeddedResource Include="ContactDetailsForm.resx">
       <DependentUpon>ContactDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ContactListForm.resx">
+      <DependentUpon>ContactListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditContactForm.resx">
       <DependentUpon>EditContactForm.cs</DependentUpon>
     </EmbeddedResource>
