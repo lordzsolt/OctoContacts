@@ -49,7 +49,7 @@ namespace OctoContacts
             
             try
             {
-                using (var odb = OdbFactory.Open("octo.db"))
+                using (var odb = OdbFactory.Open("octo2.db"))
                 {
                     odb.Store(new Message(DateTime.Now, contact.Name, messageTextBox.Text));
                 }
