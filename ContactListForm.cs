@@ -56,9 +56,16 @@ namespace OctoContacts
             Button btnAddNewContact = new Button();
             btnAddNewContact.Text = "New Contact";
             btnAddNewContact.AutoSize = true;
-            btnAddNewContact.Location = new Point((this.Width - btnAddNewContact.Width) / 2 - 10, this.Height - 50 - btnAddNewContact.Height);
+            btnAddNewContact.Location = new Point(10, this.Height - 50 - btnAddNewContact.Height);
             btnAddNewContact.Click += btnAddNewContact_Click;
             this.Controls.Add(btnAddNewContact);
+
+            Button btnMessageHistory = new Button();
+            btnMessageHistory.Text = "Message History";
+            btnMessageHistory.AutoSize = true;
+            btnMessageHistory.Location = new Point(this.Width - btnMessageHistory.Width-50, this.Height - 50 - btnAddNewContact.Height);
+            btnMessageHistory.Click += btnMessageHistory_Click;
+            this.Controls.Add(btnMessageHistory);
 
             try
             {
@@ -91,6 +98,11 @@ namespace OctoContacts
                 MessageBox.Show("Failed to open database.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             this.Controls.Add(panel);
+        }
+
+        void btnMessageHistory_Click(object sender, EventArgs e)
+        {
+            new MessageHistoryForm().ShowDialog();
         }
 
         void number_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
