@@ -111,6 +111,7 @@ namespace OctoContacts
                 return;
             }
 
+            this.user.Delete();
             this.user.Password = Crypter.Blowfish.Crypt(password);
             this.user.Save();
 

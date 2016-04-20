@@ -134,5 +134,10 @@ namespace OctoContacts
             else if (e.Button == MouseButtons.Right)
                 new ContactDetailsForm(label.Text).ShowDialog();
         }
+
+        private void ContactListForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

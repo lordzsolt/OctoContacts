@@ -39,12 +39,18 @@ namespace OctoContacts
             var username = this.usernameTextBox.Text;
             var password = this.passwordTextBox.Text;
             var user = User.Login(username, password);
-            if (user != null && this.saveUsernameCheckbox.Checked)
+            if (user == null)
+            {
+                return;
+            }
+            if (this.saveUsernameCheckbox.Checked)
             {
                 Configuration config =
                     ConfigurationManager.OpenExeConfiguration(System.Windows.Forms.Application.ExecutablePath);
-                config.AppSettings.Settings[KConfigurationKeyUsername].Value = username;
+                //config.AppSettings.Settings[KConfigurationKeyUsername].Value = username;
             }
+            new ContactListForm().Show();
+            this.Hide();
         }
 
         private void registerLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

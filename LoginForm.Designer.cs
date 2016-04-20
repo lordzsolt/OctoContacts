@@ -43,7 +43,7 @@
             this.loginButton.Location = new System.Drawing.Point(107, 96);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(75, 23);
-            this.loginButton.TabIndex = 0;
+            this.loginButton.TabIndex = 3;
             this.loginButton.Text = "Login";
             this.loginButton.UseVisualStyleBackColor = true;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
@@ -71,7 +71,7 @@
             this.usernameTextBox.Location = new System.Drawing.Point(78, 12);
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(194, 20);
-            this.usernameTextBox.TabIndex = 3;
+            this.usernameTextBox.TabIndex = 1;
             // 
             // passwordTextBox
             // 
@@ -79,7 +79,7 @@
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.Size = new System.Drawing.Size(194, 20);
-            this.passwordTextBox.TabIndex = 4;
+            this.passwordTextBox.TabIndex = 2;
             // 
             // saveUsernameCheckbox
             // 
