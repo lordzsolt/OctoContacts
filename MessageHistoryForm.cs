@@ -16,7 +16,7 @@ namespace OctoContacts
         {
             try
             {
-                using (var odb = OdbFactory.Open("octo.db"))
+                using (var odb = OdbFactory.Open("octo2.db"))
                 {
                     var msgs = odb.QueryAndExecute<Message>();
 
